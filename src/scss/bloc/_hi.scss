@@ -49,16 +49,17 @@
         align-items: center;
         justify-content: center;
     }
-
-    &__menu {
-        
-    }
 }
 
 .inf-main {
 
     &__title {
         margin: 0px 0px 15px 0px;
+
+        opacity: 0;
+        transition: all 0.4s ease 0s;
+        transform: translate(0px, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
     }
 
     &__web {
@@ -67,18 +68,30 @@
         font-size: 48px;
         line-height: 60px;
         margin-bottom: 20px;
+
+        opacity: 0;
+        transition: all 0.4s ease 0.2s;
+        transform: translate(0px, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
     }
 
     &__part-but {
-
+        opacity: 0;
+        transition: all 0.4s ease .4s;
+        transform: translate(0px, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
     }
 
     &__me-but {
         background-color: transparent;
         box-shadow: none;
+
+        opacity: 0;
+        transition: all 0.4s ease .4s;
+        transform: translate(0px, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
     }
 }
-
 
 .left-mass {
 
@@ -119,137 +132,14 @@
 
 
 
-.menu {
-    justify-content: flex-end; 
-    // Анимация списка
-    &__list {
-        // overflow: auto;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        position: relative;
-        width: 100%;
-        // background-color: rgba($color: #000000, $alpha: 0.7);
-        z-index: 10;
-        flex-direction: column;
-        // margin: 0px 0px 250px 0px;
-        align-items: center;
-        transform-origin: center;
-        transition: all 0.5s cubic-bezier(.8,.3,.7,0) 0s;
-        margin: 0px 0px 40px 0px;
-
-        transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
-        li {
-            padding: 0px 0px 0px 0px;
-            width: 100%;
-
-            &:first-child {
-                margin-top: auto;
-                margin-left: 0px;
-                a {
-                    // margin-top: 75px; 
-                }
-            }
-            &:last-child {
-                a {
-                    // margin-bottom: 40px;
-                }
-            }
-        }
-        &_active {
-            // transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
-            // transform-origin: center;
-        }
-    }
-    &__link {
-        margin: 5px 0px;
-        width: 100%;
-        font-size: 19px;
-        // text-align: center;
-        padding: 20px 0px;
-        display: block;
-    }
-
-    // Анимация крестика
-    &__burger {
-        // display: none !important; 
-
-        width: 50px;
-        height: 37px;
-        position: relative;
-        z-index: -1;
-
-        opacity: 1;
-        visibility: visible;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        cursor: pointer;
-        span {
-            transition: transform 0.3s cubic-bezier(.8,.5,.2,1.4) 0s; // для лесинки
-            // transition: transform 0.5s ease 0s; // классик
-
-            margin: 0px 0px 5px 0;
-            width: 40px;
-            height: 3px;
-            display: block;
-
-            background-color: black;
-            &:last-child {
-                margin: 0px 0px 0px 0px;
-            }
-
-            &:first-child {
-                width: 30px;
-            } 
-            &:nth-child(2) {
-                width: 36px;
-            }
-            &:nth-child(3) {
-                width: 30px;
-            } 
-        }
-        // &_active {
-        //     span {
-        //         transition: transform 0.3s cubic-bezier(.8,.5,.2,1.4) 0s; // для лесинки
-        //         // transition: transform 0.5s ease 0s; // классик
-
-        //         margin: 0px 0px 0px 0px;
-        //         // &:nth-child(1) {
-        //         //     transform: rotate(45deg);
-        //         // }
-        //         // &:nth-child(2) {
-        //         //     display: none;
-        //         // } 
-        //         // &:nth-child(3) {
-        //         //     margin: -3px 0px 0px 0px;
-        //         //     transform: rotate(-45deg);
-        //         // }
-
-        //         // виды меню -- лесинка
-        //         &:nth-child(1) {
-        //             transform: rotate(-45deg);
-        //         }
-        //         &:nth-child(2) {
-        //             display: none;
-        //         } 
-        //         &:nth-child(3) {
-                    
-        //             // width: 40px;
-        //             // margin: 0px 0px 0px 0px;
-        //             // animation:	lin 0.5s linear 1 normal running 0s forwards;
-        //             margin: -3px 0px 0px 0px;
-        //             width: 100%;
-        //             // border-left: 1px solid #000;
-        //             transform: translate(0px, 0px) rotate(45deg) scale(1, 1) skew(0deg, 0deg);
-        //             // transform-origin: center;
-        //         }
-        //     }
-        // }
-    }
-}
 .burger {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
     &__box {
         display: flex;
         justify-content: flex-end;
@@ -258,75 +148,122 @@
     }
 }
 
-
 .menu {
-    &_active {
-        .menu__backblack {
-            opacity: 0.8;
-            visibility: visible;
-            transition: all 0.3s ease 0s;
+
+    &__burger {
+        min-width: 50px;
+        min-height: 50px;
+
+        span {
+            width: 40px;
+            display: block;
+            background-color: black;
+            height: 3px;
         }
-        .menu__bar {
-            transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+
+        &_open {
+            // position: absolute;
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            
+            span {
+                margin: 0px 0px 5px 0;
+                
+                &:last-child {
+                    margin: 0px 0px 0px 0px;
+                }
+                &:nth-child(1) {
+                    width: 30px;
+                } 
+                &:nth-child(2) {
+                    width: 36px;
+                }
+                &:nth-child(3) {
+                    width: 30px;
+                } 
+            }
+        }
+
+        &_close {
+            top: 15px;
+            right: 15px;
+            position: absolute;
+            z-index: 11;
+            
+            span {
+                width: 34px;
+                height: 5px;
+                &:nth-child(1) {
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(2) {
+                    display: none;
+                } 
+                &:nth-child(3) {
+                    margin: -3px 0px 0px 0px;
+                    transform: translate(0px, 0px) rotate(45deg) scale(1, 1) skew(0deg, 0deg);
+                }
+            }
         }
     }
+
     &__backblack {
-        background: rgba(255, 255, 255, 0.75);
+        // background: rgba(255, 255, 255, 0.75);
         opacity: 0;
         visibility: hidden;
         z-index: 5;
+        transition: all 0.3s ease 0s;
+        // position: absolute;
     }
 
     &__bar {
+        background-color: #FFA501;
+        justify-content: flex-start;
+        transition: transform 0.3s cubic-bezier(.8,.5,.2,0) 0s;
+        z-index: 6;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-
-        z-index: 6;
         overflow: auto;
-        transition: transform 0.3s cubic-bezier(.8,.5,.2,0) 0s; // для лесинки
+        // position: absolute;
         position: fixed;
         height: 100%;
         width: 351px;
         top: 0;
         left: 0;
-        background-color: #FFA501;
         transform: translate(-100%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
     }
 
-    &__burger {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-    }
-
     &__list {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        margin: 0px 0px 40px 0px;
         padding: 140px 0px 0px 0px;
-        justify-content: flex-start;
-        align-items: center;
         li {
-            &:first-child {
-                padding: 0;
-            } 
+            width: 100%;
             padding: 7px 0px;
-            // padding: 0px 0px 0px 0px;
+            &:first-child {
+                padding-top: 0;
+            } 
+            &:last-child {
+                padding-bottom: 0;
+            } 
         }
     }
 
     &__link {
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: 700;
-        color: white;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        color: #fff;
         font-size: 24px;
         line-height: 36px;
         padding: 0px 0px 0px 75px;
-        position: relative;
-        &_active {
-            transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
-            transform-origin: center;
-        }
-
         &::before {  
             content: '';
             position: absolute;
@@ -339,80 +276,48 @@
         }
         &:hover {
             text-decoration: underline;
+            // &::before {  
+            //     content: '';
+            //     background-color: black;   
+            // }
+        }
+        &_active {
             &::before {  
                 content: '';
                 background-color: black;   
             }
         }
     }
+
+    &_active {
+        .menu__bar {
+            transform: translate(0, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        }
+        .menu__backblack {
+            opacity: 0.6;
+            visibility: visible;
+        }
+    } 
+
     &__mess {
-        position: relative;
-        // bottom: 50px;
-        // left: 50%;
-        // transform: translate(-50%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
-        // transform-origin: center;
-        // bottom: 50px;
-        padding: 0px 0px 50px 0px;
-        // left: 50%;
-        // transform: translate(-50%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
-        transform-origin: center;
-        z-index: 13;
         display: flex;
         justify-content: center;
-        align-items: center;
-        // padding-bottom: 50px;
-    }
-    &__mes {
-        margin: 0px 7.5px;
-        transform: translate(0px, 0px) rotate(90deg) scale(1, 1) skew(0deg, 0deg);
-        transform-origin: center;
     }
 }
 
-.burger {
-    &_close {
-        top: 15px;
-        right: 10px;
-        position: absolute;
-        cursor: pointer;
-        z-index: 11;
-        span {
-            transition: transform 0.3s cubic-bezier(.8,.5,.2,1.4) 0s; // для лесинки
-            // transition: transform 0.5s ease 0s; // классик
+.mess {
 
-            margin: 0px 0px 0px 0px;
-            // &:nth-child(1) {
-            //     transform: rotate(45deg);
-            // }
-            // &:nth-child(2) {
-            //     display: none;
-            // } 
-            // &:nth-child(3) {
-            //     margin: -3px 0px 0px 0px;
-            //     transform: rotate(-45deg);
-            // }
-
-            // виды меню -- лесинка
-            &:nth-child(1) {
-                transform: rotate(-45deg);
-            }
-            &:nth-child(2) {
-                display: none;
-            } 
-            &:nth-child(3) {
-                
-                // width: 40px;
-                // margin: 0px 0px 0px 0px;
-                // animation:	lin 0.5s linear 1 normal running 0s forwards;
-                margin: -3px 0px 0px 0px;
-                width: 100%;
-                // border-left: 1px solid #000;
-                transform: translate(0px, 0px) rotate(45deg) scale(1, 1) skew(0deg, 0deg);
-                // transform-origin: center;
-            }
-        }
+    &__mes {
+        transform: rotate(90deg);
+        margin: 0 8px;
     }
+}
 
-    &__box {
-    }
+
+
+
+._anim-items._active-show {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+    transform-origin: center;
 }

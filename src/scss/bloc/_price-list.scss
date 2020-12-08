@@ -17,6 +17,14 @@
         grid-template:  repeat(3, minmax(45px, auto)) / repeat(2, 347px);
         grid-auto-rows: minmax(45px, auto);
         justify-content: space-between;
+
+        &._active-show {
+            .price-list__items {
+                transform: translate(0, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 1;
+            }
+        }
     }
 
     &__items {
@@ -24,6 +32,24 @@
         padding-left: 25px;
         width: 100%;
         
+
+        transition: all 0.5s ease 0s;
+        transform: translate(-100%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
+        opacity: 0;
+
+        @for $var from 1 to 7 {
+            $delay: $var * 0.2;
+            &:nth-child(#{$var}) {
+                @if $var==1 {
+                    transition: all 0.4s ease 0s;
+                } @else {
+                    transition: all 0.4s ease #{$delay + s};
+                }
+            }
+        } 
+        
+
         // grid-template:  repeat(2, 1fr) / repeat(2, 1fr);
     }
 }

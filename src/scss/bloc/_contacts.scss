@@ -7,20 +7,73 @@
         display: grid;
         grid-template: minmax(600px, auto) / 400px 585px;
         justify-content: space-between;
+        overflow: hidden;
     }
 
     &__poto {
         max-height: 600px;
+
+        opacity: 0;
+        transition: all 0.4s ease 0.6s;
+        transform: translate(-80%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
     }
 
     &__content {
+
+        &._active-show {
+            .contacts__title {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+            }
+            .contacts__subtitle {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                &::before {  
+                    content: '';
+                    transform: translate(0, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                    opacity: 1;
+                }
+            }
+
+            .contacts_firstMes-anim {
+                transform: translate(0, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                opacity: 1;
+            }
+            .contacts__mes-text {
+                transform: translate(0, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                opacity: 1;
+            }
+            .contacts__mess {
+                transform: translate(0, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                opacity: 1;
+            }
+            
+        }
     }
 
     &__title {
+        opacity: 0;
+        transition: all 0.4s ease 0s;
+        transform: translate(120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
+
     }
 
     &__subtitle {
+        opacity: 0;
+        transition: all 0.4s ease .2s;
+        transform: translate(120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transform-origin: center;
+        &::before {  
+            content: '';
+            transform: translate(600%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+            transition: all 0.3s ease .4s;
+            opacity: 0;
+        }
     }
+
+    
 
     &__mes-text {
         font-family: Poppins;
@@ -29,16 +82,31 @@
         font-size: 14px;
         line-height: 21px;
         margin-bottom: 25px;
+
+        transform: translate(120%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transition: all 0.3s ease 1s;
+        // opacity: 0;
+    }
+
+    &_firstMes-anim {
+        transform: translate(120%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transition: all 0.3s ease .6s;
+        opacity: 0;
     }
 
     &__mess {
         // margin: 0px 0px 20px 0px;
+        transform: translate(120%, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        transition: all 0.3s ease .8s;
+        opacity: 0;
         .menu__mes {
             display: inline-block;
             margin: 0px 20px 20px 0px;
             transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
             transform-origin: center;
             width: 30px;
+
+            
             img {
                 max-width: 100%;
                 // transform: translate(0px, 0px) rotate(90deg) scale(1, 1) skew(0deg, 0deg);
@@ -48,23 +116,25 @@
     }
 
     &__form {
-        
+        &._active-show {
+            .form__grid-box {
+                transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                opacity: 1;
+            }
+            .form__trig {
+                transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                opacity: 1;
+            }
+        }
     }
 }
-.container {
-}
-.mess {
 
-}
-.menu {
-
-    &__mes {
-    }
-}
 .form {
-
+    
     &__my {
         position: relative;
+
+        
     }
 
     &__grid-box {
@@ -73,6 +143,10 @@
         column-gap: 25px;
         row-gap: 30px;
         margin-bottom: 30px;
+
+        transform: translate(0px, 150%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        opacity: 0;
+        transition: all 0.6s ease 0s;
     }
 
     &__button {
@@ -83,6 +157,10 @@
     &__trig {
         display: flex;
         align-items: center;
+
+        transform: translate(0px, 150%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        opacity: 0;
+        transition: all 0.6s ease 0.2s;
     }
     &__konf {
         input {
@@ -100,6 +178,8 @@
             color: #2306D6;
         }
     }
+
+
 }
 .myinput {
 

@@ -17,7 +17,7 @@
             grid-template-columns: 400px 510px;
             column-gap: 50px;
         }
-        &__skills {
+        &__skill {
             column-gap: 40px;
         }
     }
@@ -84,7 +84,6 @@
     .container, .hi__main-container {
         max-width: 720px;
     }
-    
     .title {
         // margin-bottom: 12px;
         &_fz36 {
@@ -106,7 +105,7 @@
             grid-template-columns: 300px 385px;
             column-gap: 35px;
         }
-        &__skills {
+        &__skills-box {
             grid-template-columns: 1fr;
             row-gap: 15px;
         }
@@ -155,6 +154,34 @@
                 grid-column: unset;
             }
         }
+        &__items {
+            &:nth-child(1), &:nth-child(4) {
+                transition: all 0.5s ease 0s;
+                transform: translate(-120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 1;
+            } 
+            &:nth-child(2) {
+                transition: all 0.5s ease 0s;
+                transform: translate(0, -120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            } 
+
+            &:nth-child(3),&:nth-child(6) {
+                transition: all 0.5s ease 0s;
+                transform: translate(120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            }
+
+            &:nth-child(5) {
+                transition: all 0.5s ease 0s;
+                transform: translate(0, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            }
+        }
     }
     .price-list {
         padding-bottom: 80px;
@@ -189,8 +216,6 @@
     }
 }
 
-
-
 @media (max-width: 768px) { // Для планшетеов от 577 до 768
     .container, .hi__main-container {
         max-width: 540px;
@@ -220,7 +245,7 @@
             margin-bottom: 40px;
             grid-row: unset;
         }
-        &__skills {
+        &__skills-box {
             grid-template-columns: 1fr 1fr;
             row-gap: 20px;
         }
@@ -243,7 +268,7 @@
                 margin-bottom: 0;
             }
         }
-        &__skills {
+        &__skill {
             margin-bottom: 30px;
         }
     }
@@ -268,6 +293,34 @@
             grid-template-columns: repeat(auto-fit, 262.5px);
             grid-template-rows: repeat(2, 262.5px);
             grid-auto-rows: 262.5px;
+        }
+        &__items {
+            &:nth-child(1), &:nth-child(2) {
+                transition: all 0.5s ease 0s;
+                transform: translate(0, -120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 1;
+            } 
+
+            &:nth-child(3) {
+                transition: all 0.5s ease 0s;
+                transform: translate(-120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            }
+            &:nth-child(4) {
+                transition: all 0.5s ease 0s;
+                transform: translate(120%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            }
+
+            &:nth-child(5),&:nth-child(6) {
+                transition: all 0.5s ease 0s;
+                transform: translate(0, 120%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+                transform-origin: center;
+                opacity: 0;
+            }
         }
     }
     .price-list {
@@ -312,8 +365,6 @@
         padding: 60px 0px;
     }
 }
-
-
 
 @media (max-width: 576px) { // Для телефонов от 320 до 576
     .container, .hi__main-container {
@@ -369,7 +420,7 @@
             margin-bottom: 40px;
             grid-row: unset;
         }
-        &__skills {
+        &__skills-box {
             grid-template-columns: 1fr;
             row-gap: 20px;
             grid-template-rows: auto;
@@ -390,7 +441,7 @@
                 margin-bottom: 0;
             }
         }
-        &__skills {
+        &__skill {
             margin-bottom: 15px;
         }
     }
@@ -420,6 +471,17 @@
             grid-template-rows: repeat(2, 280px);
             grid-auto-rows: 280px;
             gap: 20px;
+            &._active-show {
+                .portfolio__items {
+                    transform: scale(1, 1) !important;
+                    opacity: 1;
+                }
+            }
+        }
+        &__items {
+            transform: scale(0) !important;
+            transform-origin: center;
+            opacity: 0;
         }
     }
     .price-list {

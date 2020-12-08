@@ -34,6 +34,22 @@
         margin-bottom: 40px;
         position: relative;
         font-weight: 700;
+
+
+        span {
+            display: inline-block;
+            opacity: 0;
+            transition: all 0.4s ease 0.2s;
+            transform: translate(0, 150%) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        }
+        
+        &._active-show {
+            span {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+            }
+        }
+
         &::before {  
             content: '';
             position: absolute;
@@ -48,11 +64,28 @@
     }
 
     &__row {
+        &._active-show {
+            .experience__skills {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+            }
+        }
     }
 
     &__skills {
         margin-bottom: 45px;
         padding-left: 0;
+
+        opacity: 0;
+        
+        transform: translate(-110%, 0) rotate(0deg) scale(1, 1) skew(0deg, 0deg);
+        &:nth-child(1) {
+            transition: all 0.4s ease 0s;      
+        } 
+        &:nth-child(2) {
+            transition: all 0.4s ease .2s;      
+        } 
+
         .skills__title {
             padding-left: 60px;
             margin-bottom: 0;
@@ -78,6 +111,8 @@
         }
     }
 }
+
+
 
 .container {
 }
